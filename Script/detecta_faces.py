@@ -6,7 +6,7 @@ face_cascade = cv2.CascadeClassifier(
     filename=f"{cv2.data.haarcascades}/haarcascade_frontalface_default.xml"
 )
 
-# Abre o arquivo de video
+# Abre o arquivo de video,pode mudar
 input_video = cv2.VideoCapture('./arsene.mp4')
 
 # Checa se foi possivel abrir o arquivo
@@ -24,7 +24,8 @@ height = int(input_video.get(cv2.CAP_PROP_FRAME_HEIGHT))
 # Codec utilizado
 # FPS do video e
 # Tamanho do video
-output_video = cv2.VideoWriter( './out2.avi',cv2.VideoWriter_fourcc(*'DIVX'), 24, (width, height))
+# Apenas mudar o nome para salvar um arquivo diferente
+output_video = cv2.VideoWriter( './out3.avi',cv2.VideoWriter_fourcc(*'DIVX'), 24, (width, height))
 
 # Loop de leitura frame por frame
 while True:
@@ -34,9 +35,11 @@ while True:
 
     gray_frame = cv2.cvtColor(src=frame, code=cv2.COLOR_BGR2GRAY)
 
+    # Detecta as faces no frame, os parametros foram mudados durante a avaliacao para um melhor desempenho, pode haver resoluções melhores
+
     faces = face_cascade.detectMultiScale(
         image=gray_frame, 
-        scaleFactor=1.15, # Mudança de escala a cada passada
+        scaleFactor=1.2, # Mudança de escala a cada passada
         minNeighbors=25 # Verifica os vizinhos antes de promover o ponto a ret
     )
 
