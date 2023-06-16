@@ -35,7 +35,7 @@ while True:
 
     gray_frame = cv2.cvtColor(src=frame, code=cv2.COLOR_BGR2GRAY)
 
-    # Detecta as faces no frame, os parametros foram mudados durante a avaliacao para um melhor desempenho, pode haver resoluções melhores
+    # Detecta as faces no frame, os parametros foram mudados durante a avaliação para testes a fim de um melhor desempenho, podem haver resoluções melhores
 
     faces = face_cascade.detectMultiScale(
         image=gray_frame, 
